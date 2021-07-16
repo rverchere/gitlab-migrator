@@ -10,7 +10,7 @@ You need some python dependencies to make it work:
 ## Group and Projects
 
 ### Export
-The `gitlab-export.py` script exports a group wih all its projects and subprojects, given a group name.
+The `gitlab-export.py` script exports a group wih all its projects and subprojects, given a group name. You must be owner of the group you want to export.
 
 When using it, it generates a folder in `exports/` with the name of the group, plus:
 * `_group` folder containing all groups information

@@ -45,7 +45,7 @@ def export_group(group, output_path):
 
 
 def export_subprojects_from_group(group):
-    subgroups = group.subgroups.list()
+    subgroups = group.subgroups.list(get_all=True)
     for subgroup in subgroups:
         sgroup = gl.groups.get(subgroup.id, lazy=True)
         print("[SUBGROUP]: %s" % (subgroup.full_path))
@@ -57,7 +57,7 @@ def export_subprojects_from_group(group):
 def export_projects_from_group(group):
     # Get projects for the current group
     group_detail = gl.groups.get(group.id)
-    projects = group_detail.projects.list()
+    projects = group_detail.projects.list(get_all=True)
     for project in projects:
         print("[PROJECT]: %s - %s" % (group_detail.full_path, project.name))
         export_project(gl.projects.get(project.id), args.output, group_detail.full_path)
